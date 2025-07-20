@@ -37,6 +37,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     permissions:
+      issues: write
       contents: write
       packages: write
     steps:
