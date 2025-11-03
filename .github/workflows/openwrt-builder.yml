@@ -110,9 +110,6 @@ jobs:
       if: (!cancelled())
       run: | 
         df -hT
-        rm -r openwrt/.git
-        echo -e "\nAfter removing .git directory:"
-        df -hT
 
     - name: Clean up build artifacts
       if: steps.compile.outputs.status == 'success' && !cancelled()
