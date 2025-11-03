@@ -58,6 +58,12 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
+    - name: Use /mnt for workdir
+      run: |
+        sudo mkdir -p /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir
+        ln -sf /mnt/workdir /workdir
+
     - name: Clone source code
       working-directory: /workdir
       run: |
