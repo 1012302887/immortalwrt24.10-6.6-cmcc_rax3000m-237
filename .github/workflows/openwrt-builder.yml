@@ -62,7 +62,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH --single-branch --filter=blob:none
+        git clone $REPO_URL -b $REPO_BRANCH openwrt --single-branch --filter=blob:none
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
@@ -153,9 +153,9 @@ jobs:
 
     - name: Generate release tag
       id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M-immortalwrt24.10-6.6-cmcc_rax3000m-237")" >> $GITHUB_OUTPUT
+        echo "release_tag=$(date +\"%Y.%m.%d-%H%M-immortalwrt24.10-6.6-cmcc_rax3000m-237\")" >> $GITHUB_OUTPUT
         touch release.txt
         echo "cmcc_rax3000m-237大功率固件" >> release.txt
         echo "后台：192.168.6.1" >> release.txt
