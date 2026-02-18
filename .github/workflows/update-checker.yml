@@ -13,8 +13,8 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-25.12
+  REPO_URL: https://github.com/shaqike/immortalwrt-mt798x-rebase
+  REPO_BRANCH: 25.12-dev
 
 on:
   workflow_dispatch:
