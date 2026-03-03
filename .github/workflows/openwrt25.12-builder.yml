@@ -18,7 +18,7 @@ on:
    - cron: 0 0 * * 6
    
 env:
-  REPO_URL: https://github.com/shaqike/immortalwrt-mt798x-rebase
+  REPO_URL: https://github.com/chasey-dev/immortalwrt-mt798x-rebase
   REPO_BRANCH: 25.12-dev
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
